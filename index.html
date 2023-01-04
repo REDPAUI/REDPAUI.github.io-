@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考试提醒</title>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <script src="./JS/dayjs.min.js"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <ul class="wrapper">
+        <li><a href="./index.html">考试提醒</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">考纲</a>
+            <div class="dropdown-content">
+              <a href="./other/Maths.html"target="_blank">数学</a>
+              <a href="./other/English.html"target="_blank">英语</a>
+              <a href="./other/Computer.html" target="_blank">计算机</a>
+            </div>
+        </li>
+        <!-- <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li> -->
+        <li style="float:right"><a class="active" href="#about"></a></li>
+      </ul>
+      <!-- 倒计时 -->
+    <div class="pp-time bacgfff wrapper">
+        <div class="pp-titles">
+            <div class="p-title flex-ja">
+                <h2>考试提醒</h2>
+            </div>
+            <p class="p-text">重庆统招专升本考试时间2023年04月08日</p>
+            <p class="p-text">倒计时的时间为2023年04月01日</p>
+        </div>
+        <div class="pp-container">
+            <img src="./img/exd.png" class="wrapper">
+            <p class="cdown" >
+                <span style="width: 60px;font-size:60px;" class="hundred">0</span>
+                <span style="width: 60px;font-size:60px;" class="ten">0</span>
+                <span style="width: 60px;font-size:60px;" class="individual">0</span>
+                <strong style="color: #0DA959;font-weight: 500;">天</strong>
+            </p>
+            <br>
+            <p class="time01"></p>
+        </div>
+    </div>
+  <script>
+        var hundred=document.querySelector('.hundred');
+		var ten=document.querySelector('.ten');
+		var individual=document.querySelector('.individual');
+        var time01=document.querySelector('.time01');
+        time = dayjs().format('YYYY-MM-DD');
+        day=dayjs(time).diff('2023-04-01', 'day')*-1;
+        hundred.innerHTML=parseInt(day/100);
+        ten.innerHTML=parseInt(day/10);
+        individual.innerHTML=parseInt(day%10);
+        setInterval("countdown()",14400000);
+        setInterval(" time01.innerHTML=dayjs().format('当前时间：YYYY年MM月DD日HH时mm分ss秒') ", 500);
+        function countdown(){
+        time = dayjs().format('YYYY-MM-DD');
+        day=dayjs(time).diff('2023-04-01', 'day')*-1;
+        hundred.innerHTML=parseInt(day/100);
+        ten.innerHTML=parseInt(day/10);
+        individual.innerHTML=parseInt(day%10);
+        }
+  </script>
+</body>
+</html>
